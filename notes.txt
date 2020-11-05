@@ -1,0 +1,26 @@
+1. make api request and count length of the array
+2. 
+
+to do.
+
+1. make html page with one input to search for year
+2. make js page 
+3. 
+
+
+
+ /**Handle search form submisstion: get ballots from the API then display on DOM
+  * with populateBallots()
+  */
+ async function searchForBallotAndDisplay(){
+   const year = $("#searchForm-year").val();
+   const ballots = await getBallotbyYear(year);
+
+   poplulateBallots(ballots);
+ }
+
+ //on submit, search for shows
+ $searchForm.on("submit", async function(evt){
+   evt.preventDefault();
+   await searchForBallotAndDisplay();
+ })
