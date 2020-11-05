@@ -75,3 +75,18 @@ const $searchForm = $("#searchForm");
     }
  }
 
+/**Handle search form submisstion: get ballots from the API then display on DOM
+  * with populateBallots()
+  */
+async function searchForBallotAndDisplay() {
+  const year = $("#searchForm-year").val();
+  const ballots = await getBallotbyYear(year);
+
+  poplulateBallots(ballots);
+}
+
+//on submit, search for shows
+$searchForm.on("submit", async function (evt) {
+  evt.preventDefault();
+  await searchForBallotAndDisplay();
+})
